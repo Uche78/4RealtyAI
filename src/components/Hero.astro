@@ -2,121 +2,61 @@
 // Hero section component
 ---
 
-<section class="relative bg-gradient-to-br from-realty-50 via-blue-50 to-white py-20 lg:py-32 overflow-hidden">
-  <!-- Background decoration -->
-  <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
-  <div class="absolute top-10 right-10 w-72 h-72 bg-realty-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
-  <div class="absolute bottom-10 left-10 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: -2s;"></div>
+<section 
+  class="relative min-h-[100svh] sm:h-[80vh] flex items-center bg-cover bg-center"
+  style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/hero.jpg');"
+>
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+    <div class="max-w-5xl">
+      <!-- Label -->
+      <p class="text-white text-sm sm:text-base lg:text-lg font-bold tracking-[0.2em] sm:tracking-[0.3em] mb-3 sm:mb-4">
+        AI for Realtors & Mortgage Brokers
+      </p>
+      
+      <!-- Headline -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font- text-brand-primary mb-4 sm:mb-6">
+        AI Systems That Help Realtors & Mortgage Brokers Work Smarter, Not Harder
+      </h1>
 
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
-      <!-- Left column - Content -->
-      <div class="lg:col-span-6">
-        <div class="animate-fade-in">
-          <!-- Badge -->
-          <div class="inline-flex items-center px-4 py-2 rounded-full bg-realty-100 text-realty-800 text-sm font-medium mb-6">
-            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            Launching ShowSmart™ Beta
-          </div>
-
-          <!-- Main headline -->
-          <h1 class="text-5xl lg:text-6xl font-heading font-bold text-gray-900 leading-tight mb-6">
-            AI Tools for 
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-realty-600 to-blue-600">Real Estate</span>
-            — 4Real
-          </h1>
-
-          <!-- Subheadline -->
-          <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-            Stop losing leads to delayed responses. ShowSmart™ captures every inquiry 24/7, 
-            answers property questions instantly, and matches buyers with perfect homes automatically.
-          </p>
-
-          <!-- CTA buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 mb-8">
-            <a href="#beta-signup" class="bg-realty-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-realty-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center">
-              Join Beta (Free)
-            </a>
-            <a href="#demo" class="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-xl font-semibold hover:border-realty-600 hover:text-realty-600 transition-all duration-300 text-center">
-              Watch Demo
-            </a>
-          </div>
-
-          <!-- Social proof -->
-          <div class="flex items-center space-x-6 text-sm text-gray-500">
-            <div class="flex items-center space-x-1">
-              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-              </svg>
-              <span>Trusted by 100+ agents</span>
-            </div>
-            <div class="flex items-center space-x-1">
-              <svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span>99.9% uptime</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right column - Visual -->
-      <div class="lg:col-span-6 mt-12 lg:mt-0">
-        <div class="relative animate-slide-up">
-          <!-- Main device mockup -->
-          <div class="bg-white rounded-2xl shadow-2xl p-6 mx-auto max-w-md transform rotate-3 hover:rotate-0 transition-transform duration-500">
-            <!-- Chat interface mockup -->
-            <div class="bg-gray-50 rounded-xl p-4">
-              <div class="flex items-center space-x-2 mb-4">
-                <div class="w-8 h-8 bg-realty-600 rounded-full flex items-center justify-center">
-                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                </div>
-                <span class="font-semibold text-gray-900">ShowSmart™</span>
-                <span class="text-xs text-green-500 bg-green-100 px-2 py-1 rounded-full">Online</span>
-              </div>
-              
-              <div class="space-y-3">
-                <div class="bg-blue-500 text-white p-3 rounded-lg rounded-br-sm text-sm">
-                  Hi! I'm interested in the 3BR house on Maple Street. Is it still available?
-                </div>
-                <div class="bg-white p-3 rounded-lg rounded-bl-sm text-sm shadow-sm">
-                  Yes! The 3BR at 123 Maple Street is still available. It features updated kitchen, hardwood floors, and a great backyard. Would you like to schedule a showing?
-                </div>
-                <div class="bg-blue-500 text-white p-3 rounded-lg rounded-br-sm text-sm">
-                  Perfect! What times are available this weekend?
-                </div>
-                <div class="bg-white p-3 rounded-lg rounded-bl-sm text-sm shadow-sm">
-                  I can book you for Saturday at 2 PM or Sunday at 10 AM. I'll also send you similar 3BR homes that just came on the market!
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Floating elements -->
-          <div class="absolute -top-4 -left-4 bg-green-500 text-white p-3 rounded-lg text-sm shadow-lg animate-bounce-slow">
-            <div class="flex items-center space-x-2">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span>Lead Captured!</span>
-            </div>
-          </div>
-
-          <div class="absolute -bottom-4 -right-4 bg-realty-600 text-white p-3 rounded-lg text-sm shadow-lg" style="animation-delay: -1s;">
-            <div class="flex items-center space-x-2">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-              </svg>
-              <span>Match Sent!</span>
-            </div>
-          </div>
-        </div>
+      <!-- Subheadline -->
+      <h2 class="text-white text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-2xl leading-relaxed">
+        Unlock automation, efficiency, and revenue growth with AI tools and implementation built specifically for real estate and mortgage professionals.
+      </h2>
+      
+      <!-- CTA buttons -->
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8">
+        <!-- Primary CTA -->
+        <a 
+          href="#beta-signup" 
+          class="inline-flex text-base sm:text-lg items-center justify-center border-2 bg-brand-primary text-charcoal-700 px-6 sm:px-8 lg:px-12 py-3 sm:py-4 rounded-full hover:bg-brand-secondary hover:text-brand-primary transition-all duration-300 text-center font-medium"
+        >
+          <span>Book a Free Consultation</span>
+          <svg class="w-4 h-4 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+  
+        <!-- Secondary CTA -->
+        <a 
+          href="#demo" 
+          class="inline-flex text-base sm:text-lg items-center justify-center border-2 border-brand-primary text-brand-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-brand-primary hover:text-charcoal-700 transition-all duration-300 text-center font-medium"
+        >
+          <span class="whitespace-nowrap sm:whitespace-normal">AI Profitability Assessment</span>
+          <svg class="w-4 h-4 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Optional: Sticky CTA on mobile -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-charcoal-800 border-t border-brand-primary sm:hidden z-50">
+  <a 
+    href="#beta-signup" 
+    class="block w-full text-center bg-brand-primary text-charcoal-700 px-6 py-4 rounded-full font-medium"
+  >
+    Book Free Consultation
+  </a>
+</div>

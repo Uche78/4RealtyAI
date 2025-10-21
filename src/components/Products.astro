@@ -2,93 +2,122 @@
 // Products section component
 ---
 
-<section id="products" class="py-20 bg-white">
+<section id="products" class="py-20 bg-brand-primary text-brand-text">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section header -->
-    <div class="text-center mb-16">
-      <h2 class="text-4xl lg:text-5xl font-heading font-bold text-gray-900 mb-6">
-        Your AI-Powered 
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-realty-600 to-blue-600">Real Estate</span> 
-        Toolkit
-      </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        From lead generation to client experience, our AI tools handle the heavy lifting 
-        so you can focus on closing deals and building relationships.
-      </p>
-    </div>
-
-    <!-- Featured Product - ShowSmart -->
-    <div class="bg-gradient-to-br from-realty-50 to-blue-50 rounded-3xl p-8 lg:p-12 mb-16 border border-realty-100">
-      <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
-        <div>
-          <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-800 text-sm font-medium mb-4">
-            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-            </svg>
-            Now in Beta
-          </div>
-          
-          <h3 class="text-3xl lg:text-4xl font-heading font-bold text-gray-900 mb-4">
-            ShowSmart™
-          </h3>
-          
-          <p class="text-lg text-gray-600 mb-6">
-            Your always-on showing assistant that never misses a lead. Answers property questions, 
-            books showings, and sends personalized property matches — all in real-time, 24/7.
-          </p>
-          
-          <div class="space-y-3 mb-8">
-            <div class="flex items-center space-x-3">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span class="text-gray-700">Instant property Q&A using your website content</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span class="text-gray-700">Automated showing booking and calendar integration</span>
-            </div>
-            <div class="flex items-center space-x-3">
-              <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-              </svg>
-              <span class="text-gray-700">Personalized property matching and alerts</span>
-            </div>
-          </div>
-
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="#beta-signup" class="bg-realty-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-realty-700 transition-colors text-center">
-              Join Beta (Free)
-            </a>
-            <a href="#demo" class="border border-gray-300 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:border-realty-600 hover:text-realty-600 transition-colors text-center">
-              Watch Demo
-            </a>
-          </div>
-        </div>
-
-        <div class="mt-8 lg:mt-0">
-          <div class="bg-white rounded-2xl shadow-xl p-6 transform hover:scale-105 transition-transform duration-300">
-            <div class="text-center mb-4">
-              <span class="text-2xl font-bold text-realty-600">ShowSmart™</span>
-              <p class="text-gray-500">Your always-on showing assistant</p>
-            </div>
-            <div class="bg-gray-50 rounded-lg p-4 space-y-2 text-sm">
-              <div class="bg-blue-100 text-blue-800 p-2 rounded">👋 Hi! Interested in the 3BR on Oak St?</div>
-              <div class="bg-green-100 text-green-800 p-2 rounded">✅ Yes! $485K, updated kitchen, great schools nearby. Book a showing?</div>
-              <div class="bg-yellow-100 text-yellow-800 p-2 rounded">📅 Saturday 2 PM slot booked!</div>
-              <div class="bg-purple-100 text-purple-800 p-2 rounded">🏠 Sending 3 similar homes that match your criteria...</div>
-            </div>
-          </div>
-        </div>
+    <div class="text-center mt-8 mb-24">
+      <div class="inline-flex items-center px-4 py-2 text-charcoal-500 text-sm font-sans font-normal mb-6">
+        ShowSmart™ Real Estate AI Chatbot
       </div>
+      <h2 class="text-5xl lg:text-6xl mb-6 tracking-tight">
+  More qualified <span class="text-brand-secondary">leads,</span> faster <span class="text-brand-secondary">sales.</span>
+</h2>
+      <p class="text-lg font-sans max-w-3xl mx-auto">
+        Intelligent automation that captures every opportunity, nurtures prospects automatically, and helps you close more deals in less time.
+      </p>
+
+   <!-- Learn More Button -->
+    <div class="text-center mt-8">
+    <a href="#client-experience-details" class="inline-flex items-center px-6 py-2 border border-brand-secondary text-brand-secondary rounded-3xl font-medium hover:bg-brand-secondary hover:text-brand-primary transition-colors">
+          <span>Learn More</span>
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+     </div>
+     </div>
+
+    <!-- Two Column Feature Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24 mb-24">
+  <!-- Toronto Image -->
+<!-- Vancouver Image -->
+<div class="mb-8 relative">
+  <img src="https://krzofnafayygoxoinkfv.supabase.co/storage/v1/object/public/4realtyai/page-images/sandro-schuh-6wVqCeK030Y-unsplash.jpg" 
+       alt="Real estate professionals using AI technology for lead generation" 
+       class="w-full h-70 object-cover rounded-xl shadow-lg">
+  
+  <!-- Glass Glaze Bottom Text Overlay -->
+  <div class="absolute bottom-0 left-0 right-0 bg-black/20 backdrop-blur-md border-t border-black/20 rounded-b-xl p-6">
+    <h3 class="text-xl font-display font-bold text-white mb-1 drop-shadow-lg">
+      Boost Your Leads with Smart Technology
+    </h3>
+    <p class="text-white/90 font-serif text-sm drop-shadow-md">
+      Convert visitors automatically
+    </p>
+  </div>
+</div>
+
+    
+<!-- Vancouver Image -->
+<div class="mb-8 relative">
+  <img src="https://krzofnafayygoxoinkfv.supabase.co/storage/v1/object/public/4realtyai/page-images/Vancouver.jpg" 
+       alt="Real estate professionals using AI technology for lead generation" 
+       class="w-full h-70 object-cover rounded-xl shadow-lg">
+
+
+  
+  <!-- Glass Glaze Bottom Text Overlay -->
+  <div class="absolute bottom-0 left-0 right-0 bg-black/20 backdrop-blur-md border-t border-black/20 rounded-b-xl p-6">
+    <h3 class="text-xl font-display font-bold text-brand-primary mb-1 drop-shadow-lg">
+      Enhance Client Experience with Personalization
+    </h3>
+    <p class="text-brand-primary font-serif text-sm drop-shadow-md">
+      Deliver exactly what each client wants with intelligent matching
+    </p>
+  </div>
+</div>
+    
+    <!-- Lead Generation Text
+    <div class="text-left">
+    <div class="mb-8 relative">
+    <h3 class="text-2xl lg:text-3xl font-display font-bold text-charcoal-800 mb-4">
+      Boost Your Leads with
+      <br>Smart Technology
+    </h3>
+    <p class="text-md font-serif text-charcoal-700">
+      Turn every website visitor into a potential client with intelligent technology that works 24/7 to capture, qualify, and convert prospects automatically.
+    </p>
+  </div>
+     </div> -->
+     </div>
+
+      <!-- Marketing
+      <div class="text-center">
+        <div class="mb-8">
+          <img src="https://krzofnafayygoxoinkfv.supabase.co/storage/v1/object/public/4realtyai/section-images/marketing-ai.jpg" 
+               alt="AI-powered marketing campaigns for real estate" 
+               class="w-full h-64 object-cover rounded-2xl shadow-lg">
+        </div>
+        <h3 class="text-xl lg:text-2xl font-display font-bold text-charcoal-800 mb-4">
+          Elevate Your
+          <br>Marketing Game with
+          <br>AI
+        </h3>
+        <p class="text-lg font-serif text-charcoal-800">
+          Transform your marketing campaigns into 
+          powerful client magnets.
+        </p>
+      </div> -->
+
+      <!-- Client Experience
+      <div class="text-center">
+        <div class="mb-8">
+          <img src="https://krzofnafayygoxoinkfv.supabase.co/storage/v1/object/public/4realtyai/page-images/homekeys.jpg" 
+               alt="Personalized real estate client experience with AI" 
+               class="w-full h-70 object-cover rounded-xl shadow-lg bg-charcoal-800 opacity-80">
+        </div>
+        <h3 class="text-xl lg:text-2xl font-display font-bold text-charcoal-800 mb-4">
+          Enhance Client Experience with
+          <br>Personalization
+        </h3>
+        <p class="text-md font-serif text-charcoal-700">
+          Deliver exactly what each client wants with intelligent matching that learns their preferences and automatically sends perfectly tailored property recommendations.
+        </p>
+      </div> -->
     </div>
 
-    <!-- Coming Soon Products -->
-    <div class="text-center mb-12">
-      <h3 class="text-3xl font-heading font-bold text-gray-900 mb-4">Coming Soon</h3>
-      <p class="text-lg text-gray-600">The complete 4RealtyAI suite launching Q2 2025</p>
-    </div>
 
-    <div class="grid grid-cols
+
+    </div>
+  </div>
+</section>

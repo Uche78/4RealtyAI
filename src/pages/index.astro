@@ -2,17 +2,35 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import Mission from '../components/Mission.astro';
+import Services from '../components/Services.astro';
+import Why from '../components/why.astro';
+import Faqs from '../components/Faqs.astro';
+import Cta from '../components/Cta.astro';
+import Footer from '../components/Footer.astro';
+import ValueProposition from '../components/ValueProposition.astro';
+import ProblemSolution from '../components/ProblemSolution.astro';
+import Features from '../components/Features.astro';
+import Testimonials from '../components/Testimonials.astro';
 import Products from '../components/Products.astro';
 import BetaSignup from '../components/BetaSignup.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="4RealtyAI - AI Tools for Real Estate Professionals">
+<Layout 
+      title="4RealtyAI - AI Tools for Realtors and Mortgage Brokers"
+      description=""
+>
   <Header />
   <main>
     <Hero />
+    <Mission />
+    <Services />
+    <Why />
+    <Faqs />
+    <Cta />
+    <Testimonials />
     <Products />
-    <BetaSignup />
   </main>
   <Footer />
 </Layout>

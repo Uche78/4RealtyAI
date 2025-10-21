@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+  
+  body {
+    @apply font-sans text-charcoal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+
+  h1 {
+    @apply text-white text-5xl lg:text-6xl font-bold leading-tight font-serif mb-8;
+  }
+
+  h2 {
+    @apply text-4xl lg:text-6xl font-medium text-[#2C2C2C] mb-4 tracking-tight font-serif;
+  }
+
+  h3 {
+    @apply text-xl lg:text-2xl font-normal text-[#2C2C2C] mb-4 tracking-tight font-sans;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-coral hover:bg-coral-hover text-white px-10 py-4 rounded-md font-semibold text-lg transition-all duration-200 inline-flex items-center gap-3 shadow-lg cursor-pointer;
+  }
+
+  .bg-cta-pattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  /* Custom utilities if needed */
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }  
+}
