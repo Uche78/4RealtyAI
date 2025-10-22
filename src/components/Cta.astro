@@ -165,111 +165,95 @@
     const closeModalBtn = document.getElementById('closeModalBtn');
     const closeSuccessBtn = document.getElementById('closeSuccessBtn');
     const formModal = document.getElementById('formModal');
-    const modalContent = formModal.querySelector('.modal-content');
     const ctaForm = document.getElementById('ctaForm');
     const submitBtn = document.getElementById('submitBtn');
+    const successMessage = document.getElementById('successMessage');
+
+    if (!openModalBtn || !closeModalBtn || !closeSuccessBtn || !formModal || !ctaForm || !submitBtn || !successMessage) {
+      console.warn('One or more CTA elements are missing from the DOM.');
+      return;
+    }
+
+    const modalContent = formModal.querySelector('.modal-content');
     const submitText = submitBtn.querySelector('.submit-text');
     const loadingText = submitBtn.querySelector('.loading-text');
-    const successMessage = document.getElementById('successMessage');
-    
+
+    if (!modalContent || !submitText || !loadingText) {
+      console.warn('Modal content elements not found.');
+      return;
+    }
+
     // Open modal
     openModalBtn.addEventListener('click', function() {
       formModal.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
-      
-      // Trigger animation
       setTimeout(() => {
         modalContent.classList.remove('scale-95', 'opacity-0');
         modalContent.classList.add('scale-100', 'opacity-100');
       }, 10);
     });
-    
+
     // Close modal function
     function closeModal() {
       modalContent.classList.remove('scale-100', 'opacity-100');
       modalContent.classList.add('scale-95', 'opacity-0');
-      
+
       setTimeout(() => {
         formModal.classList.add('hidden');
         document.body.classList.remove('overflow-hidden');
-        
-        // Reset form and success message
         ctaForm.classList.remove('hidden');
         successMessage.classList.add('hidden');
         ctaForm.reset();
       }, 300);
     }
-    
-    // Close button
+
     closeModalBtn.addEventListener('click', closeModal);
     closeSuccessBtn.addEventListener('click', closeModal);
-    
-    // Close on overlay click
+
     formModal.addEventListener('click', function(e) {
-      if (e.target === formModal) {
-        closeModal();
-      }
+      if (e.target === formModal) closeModal();
     });
-    
-    // Close on Escape key
+
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && !formModal.classList.contains('hidden')) {
-        closeModal();
-      }
+      if (e.key === 'Escape' && !formModal.classList.contains('hidden')) closeModal();
     });
-    
-    // Form submission with ElevenLabs integration
+
+    // Form submission handler
     ctaForm.addEventListener('submit', async function(e) {
       e.preventDefault();
-      
-      // Disable submit button and show loading
+
       submitBtn.disabled = true;
       submitText.classList.add('hidden');
       loadingText.classList.remove('hidden');
-      
-      // Get form data
+
       const formData = new FormData(ctaForm);
-      const countryCode = formData.get('countryCode');
-      const phone = formData.get('phone');
+      const countryCode = formData.get('countryCode') || '';
+      const phone = formData.get('phone') || '';
       const fullPhoneNumber = `${countryCode}${phone}`;
-      
+
       const data = {
         fullName: formData.get('fullName'),
         email: formData.get('businessEmail'),
         phone: fullPhoneNumber
       };
-      
+
       try {
-        // Call your backend API endpoint that triggers ElevenLabs
         const response = await fetch('/api/initiate-call', {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
         });
-        
-        if (!response.ok) {
-          throw new Error('Failed to initiate call');
-        }
-        
-        const result = await response.json();
-        console.log('Call initiated:', result);
-        
-        // Show success message
+
+        if (!response.ok) throw new Error('Failed to initiate call');
+
+        await response.json();
+
         ctaForm.classList.add('hidden');
         successMessage.classList.remove('hidden');
-        
-        // Re-enable button
-        submitBtn.disabled = false;
-        submitText.classList.remove('hidden');
-        loadingText.classList.add('hidden');
-        
       } catch (error) {
         console.error('Error:', error);
         alert('Something went wrong. Please try again or contact us directly.');
-        
-        // Re-enable button
+      } finally {
         submitBtn.disabled = false;
         submitText.classList.remove('hidden');
         loadingText.classList.add('hidden');
@@ -277,6 +261,7 @@
     });
   });
 </script>
+
 
 <style>
   /* Smooth transitions for modal */
