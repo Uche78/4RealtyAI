@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   output: 'server', // Important! This enables API routes
-  adapter: netlify()
+  adapter: netlify(),
   integrations: [tailwind()],
   site: 'https://4realtyai.com',
   compressHTML: true,
