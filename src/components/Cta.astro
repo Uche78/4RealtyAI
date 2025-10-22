@@ -53,8 +53,8 @@
 
       <!-- Modal Header -->
       <div class="mb-6 sm:mb-8">
-        <h3 class="text-2xl sm:text-3xl font-bold text-brand-text mb-2">
-          Let 4RealtyAI show you how fast it works!
+        <h3 class="text-2xl sm:text-3xl text-brand-text mb-4 text-center">
+          See how fast it works!
         </h3>
       </div>
 
@@ -112,16 +112,12 @@
           *Test calls available in US & Canada only. Sign up free. We serve customers worldwide.
         </p>
 
-        <!-- reCAPTCHA -->
-        <div class="flex justify-center">
-          <div class="g-recaptcha" data-sitekey="your-site-key-here"></div>
-        </div>
 
         <!-- Submit Button -->
         <button 
           type="submit"
           id="submitBtn"
-          class="w-full bg-brand-text text-brand-primary px-6 py-3 sm:py-4 rounded-full font-semibold hover:bg-cream-100 transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+          class="w-full bg-brand-text text-brand-primary px-6 py-3 sm:py-4 rounded-full font-semibold hover:bg-black transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl transform disabled:opacity-50 disabled:cursor-not-allowed"
         >
           <span class="submit-text">Talk to AI</span>
           <span class="loading-text hidden">
@@ -135,9 +131,9 @@
 
         <!-- Privacy Links -->
         <div class="text-center text-xs sm:text-sm text-brand-text">
-          <a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="/privacy" class="hover:text-black transition-colors">Privacy Policy</a>
           <span class="mx-2">|</span>
-          <a href="/terms" class="hover:text-white transition-colors">Terms of Service</a>
+          <a href="/terms" class="hover:text-black transition-colors">Terms of Service</a>
         </div>
       </form>
 
@@ -148,12 +144,12 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h4 class="text-2xl font-bold text-brand-primary">Call Initiated!</h4>
-        <p class="text-brand-primary">You should receive a call from our AI agent within the next 30 seconds.</p>
-        <p class="text-sm text-cream-100">Please answer your phone to experience how 4RealtyAI works.</p>
+        <h4 class="text-2xl text-brand-text">Call Initiated!</h4>
+        <p class="text-brand-text">You should receive a call from our AI agent within the next 30 seconds.</p>
+        <p class="text-sm text-brand-text">Please answer your phone to experience how 4RealtyAI works.</p>
         <button 
           id="closeSuccessBtn"
-          class="mt-6 bg-brand-primary text-charcoal-800 px-8 py-3 rounded-full font-semibold hover:bg-cream-100 transition-all duration-300"
+          class="mt-6 bg-brand-text text-brand-primary px-8 py-3 rounded-full font-semibold hover:bg-black transition-all duration-300"
         >
           Close
         </button>
@@ -162,8 +158,6 @@
   </div>
 </div>
 
-<!-- reCAPTCHA Script -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
