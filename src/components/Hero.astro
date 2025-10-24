@@ -3,35 +3,35 @@
 ---
 
 <section 
-  class="relative min-h-[100svh] sm:h-[80vh] flex items-center bg-cover bg-center"
+  class="relative min-h-[75svh] sm:min-h-[85vh] md:min-h-[80vh] flex items-center bg-cover bg-center"
   style="background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/hero.jpg');"
 >
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-16 lg:py-20 pb-24 sm:pb-16">
     <div class="max-w-5xl">
       <!-- Label -->
-      <p class="text-white text-sm sm:text-base lg:text-lg font-bold tracking-[0.2em] sm:tracking-[0.3em] mb-3 sm:mb-4">
+      <p class="font-sans text-brand-primary text-xs sm:text-sm md:text-base lg:text-lg tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] mb-3 sm:mb-4 uppercase">
         AI for Realtors & Mortgage Brokers
       </p>
       
       <!-- Headline -->
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font- text-brand-primary mb-4 sm:mb-6">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-brand-primary mb-4 sm:mb-6 leading-tight sm:leading-tight">
         AI Systems That Help Realtors & Mortgage Brokers Work Smarter, Not Harder
       </h1>
 
       <!-- Subheadline -->
-      <h2 class="text-white text-lg sm:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-2xl leading-relaxed">
+      <h2 class="font-sans text-brand-primary text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-2xl leading-relaxed">
         Unlock automation, efficiency, and revenue growth with AI tools and implementation built specifically for real estate and mortgage professionals.
       </h2>
       
       <!-- CTA buttons -->
-      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8">
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
         <!-- Primary CTA -->
         <a 
           href="#beta-signup" 
-          class="inline-flex text-base sm:text-lg items-center justify-center border-2 bg-brand-primary text-charcoal-700 px-6 sm:px-8 lg:px-12 py-3 sm:py-4 rounded-full hover:bg-brand-secondary hover:text-brand-primary transition-all duration-300 text-center font-medium"
+          class="inline-flex text-sm sm:text-base lg:text-lg items-center justify-center border-2 border-brand-primary bg-brand-primary text-charcoal-700 px-6 sm:px-8 lg:px-12 py-3 sm:py-4 rounded-full hover:bg-transparent hover:text-brand-primary transition-all duration-300 text-center group"
         >
-          <span>Book a Free Consultation</span>
-          <svg class="w-4 h-4 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span>Schedule a Free Consultation</span>
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 flex-shrink-0 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
@@ -39,24 +39,77 @@
         <!-- Secondary CTA -->
         <a 
           href="#demo" 
-          class="inline-flex text-base sm:text-lg items-center justify-center border-2 border-brand-primary text-brand-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-brand-primary hover:text-charcoal-700 transition-all duration-300 text-center font-medium"
+          class="inline-flex text-sm sm:text-base lg:text-lg items-center justify-center border-2 border-brand-primary text-brand-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-brand-primary hover:text-brand-text transition-all duration-300 text-center group"
         >
-          <span class="whitespace-nowrap sm:whitespace-normal">AI Profitability Assessment</span>
-          <svg class="w-4 h-4 ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <span class="whitespace-nowrap">Get Your Custom AI Roadmap</span>
+          <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 flex-shrink-0 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
       </div>
+
+      <!-- Trust indicators (optional - add if needed) -->
+      <div class="hidden sm:flex items-center gap-6 text-white/70 text-sm">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-brand-primary" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span>Free Consultation</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-brand-primary" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span>No Credit Card Required</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5 text-brand-primary" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          <span>Setup in Minutes</span>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Scroll indicator (optional) -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block">
+    <a href="#features" class="flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors">
+      <span class="text-xs uppercase tracking-wider">Scroll</span>
+      <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </a>
   </div>
 </section>
 
-<!-- Optional: Sticky CTA on mobile -->
-<div class="fixed bottom-0 left-0 right-0 p-4 bg-charcoal-800 border-t border-brand-primary sm:hidden z-50">
+<!-- Sticky CTA on mobile (only shows when scrolled down) -->
+<div id="mobile-sticky-cta" class="fixed bottom-0 left-0 right-0 p-3 bg-charcoal-800/95 backdrop-blur-md border-t border-brand-primary/30 sm:hidden z-50 transform translate-y-full transition-transform duration-300">
   <a 
     href="#beta-signup" 
-    class="block w-full text-center bg-brand-primary text-charcoal-700 px-6 py-4 rounded-full font-medium"
+    class="block w-full text-center bg-brand-primary text-charcoal-700 px-6 py-3 rounded-full font-semibold text-sm shadow-lg hover:bg-brand-secondary transition-colors"
   >
     Book Free Consultation
   </a>
 </div>
+
+<script>
+  // Show sticky CTA when user scrolls down on mobile
+  if (window.innerWidth < 640) {
+    const stickyCTA = document.getElementById('mobile-sticky-cta');
+    let lastScroll = 0;
+    
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      
+      // Show CTA when scrolled down past hero (roughly 100vh)
+      if (currentScroll > window.innerHeight * 0.8 && currentScroll > lastScroll) {
+        stickyCTA?.classList.remove('translate-y-full');
+      } else if (currentScroll < window.innerHeight * 0.5 || currentScroll < lastScroll) {
+        stickyCTA?.classList.add('translate-y-full');
+      }
+      
+      lastScroll = currentScroll;
+    });
+  }
+</script>
