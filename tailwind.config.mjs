@@ -6,9 +6,9 @@ export default {
       colors: {
         // Your actual brand palette
         brand: {
-          primary: '#f3f1ec',     // Primary/background - warm neutral
+          primary: '#F3F1EC',     // Primary/background - warm neutral
           accent: '#5C6173',      // Brand accent/CTA - sophisticated blue-gray
-          text: '#262626',        // Text/strong contrast - rich dark brown
+          text: '#4A4A4A',        // Text/strong contrast - rich dark brown
           secondary: '#487f6a',   // Secondary/subtle elements - dark green
           orange: '#ED785A',
           grey: '#4a4737',
@@ -40,16 +40,8 @@ export default {
           900: '#202124',
         },
         charcoal: {
-          50: '#f7f7f6',
-          100: '#e3e3e1',
-          200: '#c6c6c2',
-          300: '#a8a8a3',
-          400: '#8b8b84',
-          500: '#6e6e65',
-          600: '#515146',
-          700: '#343427',
-          800: '#2C2926',         // Your text color
-          900: '#1a1918',
+          DEFAULT: '#2c2c2c',
+          light: '#4a4a4a',
         },
         warm: {
           50: '#faf9f7',
@@ -66,20 +58,22 @@ export default {
       },
       
       fontFamily: {
-        // Luxury headlines and product names
-        display: ['serif', 'Playfair Display', 'Georgia' ],
-        // Body text and interface
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        // Supporting sans-serif for buttons, labels, fine print
-        serif: ['Source Serif Pro', 'Georgia', 'serif'],
-        // Alternative sans-serif option
-        alt: ['Montserrat', 'system-ui', 'sans-serif'],
-        h1: ['serif', 'Playfair Display', 'Georgia', 'serif'],
-        h2: ['serif', 'Playfair Display', 'Georgia', 'serif'],
-        h3: ['Playfair Display', 'Georgia', 'serif'],
-        h4: ['Playfair Display', 'Georgia', 'serif'],
-        h5: ['Playfair Display', 'Georgia', 'serif'],
-        h6: ['Playfair Display', 'Georgia', 'serif'],
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        serif: ['Bentham', 'Georgia', 'serif'],
+      },
+      fontSize: {
+        'xs': '13px',
+        'sm': '14px',
+        'base': '16px',
+        'lg': '18px',
+        'xl': '20px',
+        '2xl': '24px',
+        '3xl': '28px',
+        '4xl': '32px',
+        '5xl': '42px',
+        '6xl': '48px',
+        '7xl': '56px',
+        '8xl': '64px',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-in-out',
