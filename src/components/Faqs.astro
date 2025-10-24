@@ -183,12 +183,12 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const faqItems = document.querySelectorAll('.faq-item');
+    const faqItems = document.querySelectorAll('.faq-item') as NodeListOf<HTMLElement>;
     
     faqItems.forEach(item => {
-      const question = item.querySelector('.faq-question');
-      const answer = item.querySelector('.faq-answer');
-      const icon = item.querySelector('.faq-icon');
+      const question = item.querySelector('.faq-question') as HTMLButtonElement | null;
+      const answer = item.querySelector('.faq-answer') as HTMLElement | null;
+      const icon = item.querySelector('.faq-icon') as HTMLElement | null;
       
       question?.addEventListener('click', function() {
         const isOpen = question.getAttribute('aria-expanded') === 'true';
@@ -196,9 +196,9 @@
         // Close all other FAQ items
         faqItems.forEach(otherItem => {
           if (otherItem !== item) {
-            const otherQuestion = otherItem.querySelector('.faq-question');
-            const otherAnswer = otherItem.querySelector('.faq-answer');
-            const otherIcon = otherItem.querySelector('.faq-icon');
+            const otherQuestion = otherItem.querySelector('.faq-question') as HTMLButtonElement | null;
+            const otherAnswer = otherItem.querySelector('.faq-answer') as HTMLElement | null;
+            const otherIcon = otherItem.querySelector('.faq-icon') as HTMLElement | null;
             
             if (otherAnswer && otherQuestion && otherIcon) {
               otherAnswer.style.maxHeight = '0px';
@@ -224,6 +224,7 @@
     });
   });
 </script>
+
 
 <style>
   /* Smooth transitions for accordion */
