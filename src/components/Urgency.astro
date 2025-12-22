@@ -1,0 +1,183 @@
+<!-- DEPENDENCIES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* 1. TYPOGRAPHY */
+  .font-serif { font-family: 'Playfair Display', serif; }
+  .font-sans { font-family: 'Inter', sans-serif; }
+
+  /* 2. ATMOSPHERE (Pure Monochrome) */
+  .bg-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .glow-white {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.06) 0%, transparent 70%);
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* 3. OBSIDIAN CARD */
+  .urgency-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .urgency-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.3); /* Bright silver border on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* 4. HOLLOW TEXT EFFECT (Silver) */
+  .text-outline-lux {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+    transition: all 0.5s ease;
+  }
+  .urgency-card:hover .text-outline-lux {
+    -webkit-text-stroke: 1px #ffffff;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+
+  /* 5. BUTTON (Solid White) */
+  .btn-white {
+    position: relative;
+    overflow: hidden;
+    background: #F3F1EC;
+    color: #050505;
+    transition: all 0.3s ease;
+  }
+  .btn-white:hover {
+    background: #e7e5e0;
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+  }
+</style>
+
+<section class="relative py-24 px-6 bg-[#050505] text-white overflow-hidden" id="urgency-section">
+  
+  <!-- Atmosphere -->
+  <div class="bg-noise"></div>
+  <!-- Top Center Silver Glow -->
+  <div class="glow-white top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+  <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+  <div class="glow-effect"></div>
+  
+  <div class="relative z-10 max-w-5xl mx-auto">
+    
+    <!-- HEADER -->
+    <div class="text-center mb-16 reveal-group">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 border border-white/20 rounded-full mb-6 bg-white/5 backdrop-blur-sm">
+        <span class="text-[11px] font-sans font-medium text-[#F3F1EC]/80 uppercase tracking-[0.2em]">Market Insight</span>
+      </div>
+      
+      <h2 class="font-serif text-[#F3F1EC] text-4xl md:text-5xl lg:text-6xl mb-6 leading-[1.1]">
+        The Window to Act <br/><span class="italic text-white/50">Is Closing</span>
+      </h2>
+    </div>
+
+    <!-- BENTO GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+      
+      <!-- CARD 1: Quote (Full Width) -->
+      <div class="urgency-card md:col-span-2 group reveal-group">
+        <!-- Quote Icon Watermark -->
+        <div class="absolute top-4 right-8 opacity-10 font-serif text-8xl leading-none">”</div>
+        
+        <div class="relative z-10 text-center max-w-3xl mx-auto py-6">
+      <h2 class="font-serif text-[#F3F1EC] text-4xl md:text-5xl lg:text-6xl mb-6 leading-[1.1]">
+          <p class="font-serif text-2xl md:text-3xl italic leading-relaxed mb-8 text-[#F3F1EC]/90">
+            "The opportunity to secure competitive advantage through AI is not indefinite. The landscape will look different within the next three years."
+          </p>
+          <div class="inline-block border-t border-[#F3F1EC]/20 pt-4">
+            <p class="font-sans text-xs font-bold uppercase tracking-widest text-[#F3F1EC]/60">
+              JLL 2025 Commercial Real Estate Tech Survey
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: Stat (Unprepared) -->
+      <div class="urgency-card group reveal-group" style="transition-delay: 100ms;">
+        <div class="flex flex-col justify-between h-full">
+          <div>
+            <h3 class="font-serif text-6xl md:text-7xl font-bold mb-4 text-outline-lux">60%</h3>
+            <div class="w-12 h-px bg-[#F3F1EC]/20 mb-6"></div>
+          </div>
+          <p class="font-sans text-base text-[#F3F1EC]/70 leading-relaxed">
+            Of real estate firms remain unprepared strategically, organizationally, and technically.
+          </p>
+        </div>
+      </div>
+
+      <!-- CARD 3: Stat (Failure Rate) -->
+      <div class="urgency-card group reveal-group" style="transition-delay: 200ms;">
+        <div class="flex flex-col justify-between h-full">
+          <div>
+            <h3 class="font-serif text-6xl md:text-7xl font-bold mb-4 text-outline-lux">83%</h3>
+            <div class="w-12 h-px bg-[#F3F1EC]/20 mb-6"></div>
+          </div>
+          <p class="font-sans text-base text-[#F3F1EC]/70 leading-relaxed">
+            Failure rate for AI projects. The gap between leaders and laggards is widening rapidly.
+          </p>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- BOTTOM ACTION -->
+    <div class="text-center reveal-group">
+      <p class="font-serif text-2xl md:text-3xl mb-8 text-[#F3F1EC]">
+        Don't be part of the 88% who fail. <br/>
+        <span class="italic text-[#F3F1EC]/50">Join the 5% who succeed.</span>
+      </p>
+      
+      <a href="#assessment" class="btn-white inline-flex items-center gap-3 px-10 py-5 rounded-full">
+        <span class="font-sans font-bold text-lg tracking-wide">Get Your Free Assessment</span>
+        <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </a>
+    </div>
+    
+  </div>
+</section>
+
+<!-- SCROLL REVEAL SCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-10');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    const items = document.querySelectorAll('.reveal-group');
+    items.forEach((item) => {
+      item.classList.add('transition-all', 'duration-1000', 'ease-out', 'opacity-0', 'translate-y-10');
+      observer.observe(item);
+    });
+  });
+</script>

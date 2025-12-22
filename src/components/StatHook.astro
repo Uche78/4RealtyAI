@@ -1,0 +1,134 @@
+<!-- DEPENDENCIES -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+  /* 1. TYPOGRAPHY */
+  .font-serif { font-family: 'Playfair Display', serif; }
+  .font-sans { font-family: 'Inter', sans-serif; }
+
+  /* 2. BENTO CARD (Obsidian Style) */
+  .stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .stat-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+  }
+
+  /* 3. HOLLOW TEXT EFFECT (For the "Failure" stat) */
+  .text-hollow {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+  .stat-card:hover .text-hollow {
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+  }
+
+  /* 4. SOLID TEXT GLOW (For the "Success" stat) */
+  .text-glow {
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+
+  /* 5. ANIMATION KEYFRAMES */
+  @keyframes luxBlurIn {
+    0% { opacity: 0; filter: blur(12px); transform: translateY(20px) scale(0.98); }
+    100% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+  }
+  
+  .reveal-stat {
+    animation-name: luxBlurIn;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+</style>
+
+<section class="relative py-20 px-6 bg-[#050505] border-t border-white/5 overflow-hidden">
+  
+  <!-- Subtle Noise Texture -->
+  <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+  <div class="relative z-10 max-w-6xl mx-auto">
+    
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-stretch">
+      
+      <!-- TILE 1: The Problem (88%) -->
+      <div class="stat-card reveal-stat">
+        <div class="mb-2">
+          <span class="font-serif text-6xl md:text-7xl font-medium text-hollow">88%</span>
+        </div>
+        <div class="w-8 h-px bg-white/20 mb-3"></div>
+        <p class="font-sans text-xs text-white/50 uppercase tracking-[0.2em]">Piloting AI</p>
+      </div>
+
+      <!-- TILE 2: The Goal (5%) -->
+      <div class="stat-card reveal-stat" style="animation-delay: 0.1s;">
+        <!-- Subtle Glow Background -->
+        <div class="absolute inset-0 bg-white/5 blur-2xl rounded-full transform scale-50 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        
+        <div class="relative z-10">
+          <div class="mb-2">
+            <span class="font-serif text-6xl md:text-7xl font-medium text-glow">5%</span>
+          </div>
+          <div class="w-8 h-px bg-white/50 mb-3 mx-auto"></div>
+          <p class="font-sans text-xs text-white uppercase tracking-[0.2em] font-semibold">Succeeding</p>
+        </div>
+      </div>
+
+      <!-- TILE 3: The Insight (Context) -->
+      <div class="stat-card md:text-left md:items-start reveal-stat" style="animation-delay: 0.2s;">
+        <p class="font-serif text-xl text-white/90 leading-relaxed mb-6">
+          "Most firms are just playing with AI. <span class="italic text-white/50">Only a fraction generate revenue.</span>"
+        </p>
+        
+        <div class="mt-auto flex items-center gap-3 pt-4 border-t border-white/10 w-full">
+          <div class="w-2 h-2 rounded-full bg-white/20"></div>
+          <p class="font-sans text-[10px] text-white/40 uppercase tracking-widest">
+            JLL 2025 CRE Tech Survey
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SCRIPT: Trigger Animation on Scroll -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    // Fail-safe: Pause initially
+    const stats = document.querySelectorAll('.reveal-stat');
+    stats.forEach(stat => {
+      stat.style.animationPlayState = 'paused';
+      observer.observe(stat);
+    });
+  });
+</script>
