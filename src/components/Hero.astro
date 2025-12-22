@@ -1,142 +1,252 @@
----
-// Hero section component
----
+<!-- 1. DEPENDENCIES: GSAP (Animation) & Fonts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<!-- 2. STYLES -->
+<style>
+  /* Typography */
+  .font-serif { font-family: 'Playfair Display', serif; }
+  .font-sans { font-family: 'Inter', sans-serif; }
+
+  /* TEXTURE: Film Grain Overlay */
+  .bg-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.05;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  /* ANIMATION UTILITY: Masking for "Curtain" Text Reveal */
+  /* The text sits inside this box. We hide the overflow so text appears to rise from the floor. */
+  .reveal-mask {
+    overflow: hidden;
+    display: block;
+    padding-bottom: 2px; /* Prevents descender clipping */
+  }
+  
+  .reveal-text {
+    display: block;
+    will-change: transform;
+    /* Default state is visible (Fail-Safe). JS will hide it instantly on load. */
+  }
+
+  /* BUTTON: Magnetic & Liquid Effect */
+  .btn-magnetic {
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    transform: translateZ(0); /* Hardware accel */
+  }
+  
+  /* The white fill layer that slides up */
+  .btn-fill {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: #F3F1EC;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 0;
+  }
+  
+  .btn-magnetic:hover .btn-fill {
+    transform: translateY(0);
+  }
+  
+  .btn-content {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s;
+  }
+  
+  .btn-magnetic:hover .btn-content {
+    color: #050505;
+  }
+</style>
 
 <section 
-  class="relative min-h-[75svh] sm:min-h-[85vh] md:min-h-[85vh] flex items-center bg-cover bg-center"
-  style="background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('/hero.jpg');" aria-label="Real estate AI consulting showing beautiful home sold with help of AI";
+  id="hero-section"
+  class="relative min-h-[90svh] flex items-center overflow-hidden bg-[#050505]" 
+  aria-label="Real estate AI consulting"
 >
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-16 lg:py-20 pb-24 sm:pb-16">
+  <!-- BACKGROUND LAYER -->
+  <!-- Image scales slowly on load (handled by JS) -->
+  <div 
+    id="hero-bg"
+    class="absolute inset-0 z-0 bg-cover bg-center opacity-50 grayscale-[30%] contrast-[1.1]" 
+    style="background-image: url('/hero.jpg'); transform: scale(1.15);"
+  ></div>
+  
+  <!-- GRADIENT OVERLAYS (For readability & depth) -->
+  <div class="absolute inset-0 z-1 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent"></div>
+  <div class="absolute inset-0 z-1 bg-gradient-to-r from-[#050505]/80 via-transparent to-transparent"></div>
+  
+  <!-- NOISE TEXTURE -->
+  <div class="bg-noise"></div>
+
+  <!-- CONTENT CONTAINER -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 py-20 pb-32">
     <div class="max-w-5xl">
-      <!-- Label -->
-      <p class="font-sans text-brand-primary text-[11px] text-xs sm:text-sm md:text-sm lg:text-sm tracking-[0.12em] sm:tracking-[0.15em] mb-2 uppercase">
-        <!-- Mobile version (shown only on mobile) -->
-        <span class="block sm:hidden">
-          AI Consulting for Real Estate Professionals
-        </span>
-        <!-- Desktop version (hidden on mobile) -->
-        <span class="hidden sm:block">
-          AI Consulting for Realtors & Mortgage Brokers
-        </span>
-      </p>
       
-      <!-- Headline - Shorter on mobile, full on desktop -->
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-brand-primary mb-4 sm:mb-6 leading-tight sm:leading-tight">
-        <!-- Mobile version (shown only on mobile) -->
-        <span class="block sm:hidden">
-          We help real estate professionals use AI to grow their business
+      <!-- 1. LABEL -->
+      <div class="reveal-mask mb-6">
+        <div class="reveal-text inline-flex w-fit items-center gap-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+          <p class="font-sans font-medium text-[#F3F1EC]/80 text-[11px] tracking-[0.2em] uppercase">
+            AI Consulting for Realtors
+          </p>
+        </div>
+      </div>
+      
+      <!-- 2. HEADLINE (Split lines for stagger effect) -->
+      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#F3F1EC] font-medium mb-8 leading-[1.1]">
+        <span class="reveal-mask">
+          <span class="reveal-text">AI Systems That</span>
         </span>
-        <!-- Desktop version (hidden on mobile) -->
-        <span class="hidden sm:block">
-          We help real estate professionals use<br> AI to grow their business
+        <span class="reveal-mask">
+          <span class="reveal-text italic text-[#F3F1EC]/90">Generate Revenue</span>
         </span>
       </h1>
 
-      <!-- Subheadline - Condensed on mobile, full on tablet+ -->
-      <h2 class="font-sans text-brand-primary sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-3xl leading-relaxed">
-        <!-- Mobile version (shown only on mobile) -->
-        <span class="block sm:hidden font-extralight">
-          We find your biggest AI opportunity and set up the right tools in just one week.
-        </span>
-        <!-- Desktop version (hidden on mobile) -->
-        <span class="hidden sm:block tracking-wider font-extralight">
-          We identify your top AI opportunity and implement the right tools, all within a week.
-        </span>
-      </h2>
+      <!-- 3. SUBHEADLINE -->
+      <div class="mb-12 max-w-2xl border-l border-[#F3F1EC]/20 pl-6 md:pl-8">
+        <div class="reveal-mask">
+          <p class="reveal-text font-sans text-[#F3F1EC]/70 sm:text-lg md:text-xl font-light leading-relaxed">
+            We help agents and brokers capture qualified leads
+          </p>
+        </div>
+        <div class="reveal-mask">
+          <p class="reveal-text font-sans text-[#F3F1EC]/70 sm:text-lg md:text-xl font-light leading-relaxed">
+            and automate content to scale without burnout.
+          </p>
+        </div>
+      </div>
       
-      <!-- CTA buttons -->
-      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
-        <!-- Primary CTA -->
+      <!-- 4. CTA BUTTONS -->
+      <div class="flex flex-col sm:flex-row gap-5" id="hero-ctas">
+        <!-- Magnetic Button -->
         <a 
           href="https://assessment.4realtyai.com/assessment"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex text-sm sm:text-base lg:text-lg items-center justify-center border-2 border-brand-primary text-brand-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-brand-primary hover:text-brand-text transition-all duration-300 text-center group"
+          class="btn-magnetic group font-sans font-medium inline-flex text-base tracking-wide items-center justify-center bg-white/5 backdrop-blur-sm text-white px-10 py-5 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"
         >
-          <span class="whitespace-nowrap">Take The Free AI Assessment</span>
-          <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 flex-shrink-0 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
+          <span class="btn-fill"></span>
+          <span class="btn-content flex items-center text-[#F3F1EC]/70">
+            Get Your Free Assessment
+            <svg class="w-4 h-4 ml-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </span>
         </a>
-  
-        <!-- Secondary CTA 
-        <a 
-          href="#demo" 
-          class="inline-flex text-sm sm:text-base lg:text-lg items-center justify-center border-2 border-brand-primary text-brand-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-brand-primary hover:text-brand-text transition-all duration-300 text-center group"
-        >
-          <span class="whitespace-nowrap">See How It Works</span>
-          <svg class="w-4 h-4 sm:w-5 sm:h-5 ml-2 flex-shrink-0 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>-->
       </div>
 
-      <!-- Trust indicators (optional - add if needed) -->
-      <div class="sm:flex items-center gap-6 text-brand-primary text-sm">
-        <div class="flex items-center gap-2 mb-3 sm:mb-6 md:mb-12">
-          <svg class="w-5 h-5 text-brand-primary" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-          </svg>
-          <span>Free Tailored Assessment</span>
+      <!-- 5. TRUST INDICATORS -->
+      <div class="mt-20 sm:flex items-center gap-10 text-[#F3F1EC]/60 text-xs font-sans tracking-wide uppercase" id="hero-trust">
+        <div class="flex items-center gap-3">
+          <div class="w-1 h-1 rounded-full bg-[#F3F1EC]/60"></div>
+          <span>Tailored Strategy</span>
         </div>
-        <div class="flex items-center gap-2 mb-3 sm:mb-6 md:mb-12">
-          <svg class="w-5 h-5 text-brand-primary" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-          </svg>
-          <span>Results-Driven Partnership</span>
+        <div class="flex items-center gap-3">
+          <div class="w-1 h-1 rounded-full bg-[#F3F1EC]/60"></div>
+          <span>Results-Driven</span>
         </div>
-        <div class="flex items-center gap-2 mb-3 sm:mb-6 md:mb-12">
-          <svg class="w-5 h-5 text-brand-primary" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-          </svg>
-          <span>We Get Paid When You See Results</span>
+        <div class="flex items-center gap-3">
+          <div class="w-1 h-1 rounded-full bg-[#F3F1EC]/60"></div>
+          <span>Performance Based</span>
         </div>
       </div>
+
     </div>
-  </div>
-
-  
-
-  <!-- Scroll indicator (optional) -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block">
-    <a href="#who" class="flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors">
-      <span class="text-xs uppercase tracking-wider">Scroll</span>
-      <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
-    </a>
   </div>
 </section>
 
-<!-- Sticky CTA on mobile (only shows when scrolled down) -->
-<div id="mobile-sticky-cta" class="fixed bottom-0 left-0 right-0 p-3 bg-charcoal-800/95 backdrop-blur-md border-t border-brand-primary/30 sm:hidden z-50 transform translate-y-full transition-transform duration-300">
-<a
-    href="https://calendly.com/4realtyai/30min"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="block w-full text-center bg-brand-text text-brand-primary px-6 py-3 rounded-full font-semibold text-sm shadow-lg hover:bg-brand-secondary transition-colors"
-  >
-    Book Free Consultation
-  </a>  
-</div>
-
+<!-- 3. ANIMATION SCRIPT -->
 <script>
-  // Show sticky CTA when user scrolls down on mobile
-  if (window.innerWidth < 640) {
-    const stickyCTA = document.getElementById('mobile-sticky-cta');
-    let lastScroll = 0;
+  window.addEventListener("load", () => {
     
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
+    // Check if GSAP loaded
+    if (typeof gsap !== 'undefined') {
       
-      // Show CTA when scrolled down past hero (roughly 100vh)
-      if (currentScroll > window.innerHeight * 0.8 && currentScroll > lastScroll) {
-        stickyCTA?.classList.remove('translate-y-full');
-      } else if (currentScroll < window.innerHeight * 0.5 || currentScroll < lastScroll) {
-        stickyCTA?.classList.add('translate-y-full');
+      // --- TIMELINE SETUP ---
+      const tl = gsap.timeline();
+
+      // 1. Initial State Set (Fail-Safe)
+      // We instantly hide elements via JS so they don't flash on screen
+      gsap.set(".reveal-text", { y: "110%" }); 
+      gsap.set(["#hero-ctas", "#hero-trust"], { autoAlpha: 0, y: 20 });
+      // Set initial scale of background for the "Ken Burns" effect
+      gsap.set("#hero-bg", { scale: 1.15 }); 
+
+      // 2. The Animation Sequence
+      
+      // Step A: Background Slow Zoom Out (Cinematic Effect)
+      gsap.to("#hero-bg", {
+        scale: 1.05,
+        duration: 10,
+        ease: "power1.out"
+      });
+
+      // Step B: Text Curtain Reveal
+      tl.to(".reveal-text", {
+        y: "0%",
+        duration: 1.4,
+        stagger: 0.15,
+        ease: "power4.out",
+        delay: 0.2
+      })
+      // Step C: Fade in Buttons & Trust Indicators
+      .to(["#hero-ctas", "#hero-trust"], {
+        autoAlpha: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out"
+      }, "-=0.8"); // Overlap slightly with text animation
+
+
+      // --- INTERACTIVE ELEMENTS ---
+
+      // 3. Mouse Parallax (Background moves against mouse)
+      const heroSection = document.getElementById('hero-section');
+      const heroBg = document.getElementById('hero-bg');
+
+      if (heroSection && heroBg) {
+        heroSection.addEventListener('mousemove', (e) => {
+          const x = (e.clientX / window.innerWidth - 0.5) * 20;
+          const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+          gsap.to(heroBg, {
+            x: x,
+            y: y,
+            duration: 2, 
+            ease: "power2.out"
+          });
+        });
       }
+
+      // 4. Magnetic Button Logic
+      const magneticBtns = document.querySelectorAll('.btn-magnetic');
+      magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          
+          gsap.to(btn, {
+            x: x * 0.5, // Strength of magnetism
+            y: y * 0.5,
+            duration: 0.4,
+            ease: "power2.out"
+          });
+        });
+
+        btn.addEventListener('mouseleave', () => {
+          gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: "elastic.out(1, 0.4)" });
+        });
+      });
       
-      lastScroll = currentScroll;
-    });
-  }
+    }
+  });
 </script>
