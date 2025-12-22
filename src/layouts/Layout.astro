@@ -3,6 +3,8 @@ export interface Props {
   title: string;
   description?: string;
 }
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const { title, description = "AI-powered tools for real estate professionals. Boost leads, automate client experience, and dominate your market with 4RealtyAI." } = Astro.props;
 ---
@@ -30,10 +32,12 @@ const { title, description = "AI-powered tools for real estate professionals. Bo
     
     <title>{title}</title>
   </head>
-  <body class="font-serif text-charcoal-800 bg-transparent">
+  <Header />
+  <body class="font-serif text-brand-text bg-transparent">
     <slot />
-    <elevenlabs-convai agent-id="agent_0001k86jr49kfnmbkp0skjgjwjps"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <elevenlabs-convai agent-id="agent_9801kd2d5hvjevmvdzg2jx4cp25j"></elevenlabs-convai><script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
   </body>
+  <Footer />
 </html>
 
 <style is:global>
