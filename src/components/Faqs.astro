@@ -179,7 +179,8 @@
     
     faqButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        const answer = btn.nextElementSibling;
+        const answer = btn.nextElementSibling as HTMLElement | null;
+        if (!answer) return;
         const isOpen = btn.getAttribute('aria-expanded') === 'true';
         
         // Close all others
