@@ -25,7 +25,7 @@
   .reveal-mask {
     overflow: hidden;
     display: block;
-    padding-bottom: 2px; /* Prevents descender clipping */
+    padding-bottom: 2px;  /* Prevents descender clipping */
   }
   
   .reveal-text {
@@ -37,6 +37,7 @@
   /* BUTTON: Magnetic & Liquid Effect */
   .btn-magnetic {
     position: relative;
+    background-color: #F3F1EC;
     overflow: hidden;
     border: 3px solid rgba(255, 255, 255, 0.2);
     transform: translateZ(0); /* Hardware accel */
@@ -93,7 +94,7 @@
       
       <!-- 1. LABEL -->
       <div class="reveal-mask mb-6">
-        <div class="reveal-text inline-flex w-fit items-center gap-3">
+        <div class="reveal-text inline-flex w-fit items-center gap-3 mt-16">
           <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
           <p class="font-sans font-medium text-[#F3F1EC]/80 text-[11px] tracking-[0.2em] uppercase">
             AI Consulting for Realtors
@@ -102,25 +103,20 @@
       </div>
       
       <!-- 2. HEADLINE (Split lines for stagger effect) -->
-      <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#F3F1EC] font-medium mb-8 leading-[1.1]">
-        <span class="reveal-mask">
-          <span class="reveal-text">AI Systems That</span>
+      <h1 class="font-serif font-medium text-[#F3F1EC] text-[2.25rem] leading-[1.15] sm:text-5xl sm:leading-[1.1] md:text-6xl lg:text-7xl xl:text-8xl mb-6 sm:mb-8 max-w-[15ch] sm:max-w-none">
+        <span class="reveal-mask block">
+          <span class="reveal-text block">AI Systems That</span>
         </span>
-        <span class="reveal-mask">
-          <span class="reveal-text italic text-[#F3F1EC]/90">Generate Revenue</span>
+        <span class="reveal-mask block">
+          <span class="reveal-text block italic text-[#F3F1EC]/90">Generate&nbsp;Revenue</span>
         </span>
       </h1>
 
       <!-- 3. SUBHEADLINE -->
-      <div class="mb-12 max-w-2xl border-l border-[#F3F1EC]/20 pl-6 md:pl-8">
+      <div class="mb-12 max-w-2xl border- border-[#F3F1EC]/20 pl- md:pl-">
         <div class="reveal-mask">
           <p class="reveal-text font-sans text-[#F3F1EC]/70 sm:text-lg md:text-xl font-light leading-relaxed">
-            We help agents and brokers capture qualified leads
-          </p>
-        </div>
-        <div class="reveal-mask">
-          <p class="reveal-text font-sans text-[#F3F1EC]/70 sm:text-lg md:text-xl font-light leading-relaxed">
-            and automate content to scale without burnout.
+            We help agents and brokers capture qualified leads and automate content to scale without burnout.
           </p>
         </div>
       </div>
@@ -129,16 +125,30 @@
       <div class="flex flex-col sm:flex-row gap-5" id="hero-ctas">
         <!-- Magnetic Button -->
         <a 
-          href="https://assessment.4realtyai.com/assessment"
-          class="btn-magnetic group font-sans font-medium inline-flex text-base tracking-wide items-center justify-center bg-white/5 backdrop-blur-sm text-white px-10 py-5 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]"
-        >
-          <span class="btn-fill"></span>
-          <span class="btn-content flex items-center text-[#F3F1EC]/70">
-            Get Your Free Assessment
-            <svg class="w-4 h-4 ml-3 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </span>
+  href="https://assessment.4realtyai.com/assessment"
+  class="btn-magnetic group
+         font-sans font-medium tracking-wide
+         inline-flex items-center justify-center
+         w-full sm:w-auto
+         px-6 py-4 sm:px-10 sm:py-5
+         text-sm sm:text-base
+         rounded-full
+         bg-white/5 backdrop-blur-sm text-white
+         transition-all duration-300
+         sm:hover:shadow-[0_0_30px_rgba(255,255,255,0.1)]
+         active:scale-[0.98]"
+>
+
+          <span class="btn-content flex items-center justify-center gap-2 text-[#050505]/80 whitespace-nowrap">
+  Get Your Free Assessment
+  <svg 
+    class="w-4 h-4 transition-transform duration-300 sm:group-hover:translate-x-1"
+    fill="none" stroke="currentColor" viewBox="0 0 24 24"
+  >
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+  </svg>
+</span>
+
         </a>
       </div>
 
@@ -174,7 +184,7 @@
 
       // 1. Initial State Set (Fail-Safe)
       // We instantly hide elements via JS so they don't flash on screen
-      gsap.set(".reveal-text", { y: "110%" }); 
+      gsap.set(".reveal-text", { yPercent: 110 }); 
       gsap.set(["#hero-ctas", "#hero-trust"], { autoAlpha: 0, y: 20 });
       // Set initial scale of background for the "Ken Burns" effect
       gsap.set("#hero-bg", { scale: 1.15 }); 
