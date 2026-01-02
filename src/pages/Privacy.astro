@@ -1,0 +1,502 @@
+---
+// src/pages/privacy.astro
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  { id: "commitment", title: "Our Commitment" },
+  { id: "who-we-are", title: "1. Who We Are" },
+  { id: "scope", title: "2. Scope of Policy" },
+  { id: "collection", title: "3. Information We Collect" },
+  { id: "usage", title: "4. How We Use Information" },
+  { id: "legal-basis", title: "5. Legal Basis (PIPEDA)" },
+  { id: "ai-usage", title: "6. AI & Machine Learning" },
+  { id: "sharing", title: "7. Sharing & Disclosure" },
+  { id: "security", title: "8. Data Security" },
+  { id: "retention", title: "9. Data Retention" },
+  { id: "rights", title: "10. Your Privacy Rights" },
+  { id: "cookies", title: "11. Cookies & Tracking" },
+  { id: "integrations", title: "12. Third-Party Services" },
+  { id: "international", title: "13. International Transfers" },
+  { id: "children", title: "14. Children's Privacy" },
+  { id: "changes", title: "15. Policy Changes" },
+  { id: "contact", title: "16. Contact Us" },
+  { id: "appendix", title: "Appendices" },
+];
+---
+
+<Layout title="Privacy Policy | 4RealtyAI">
+  
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* TYPOGRAPHY */
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+
+    /* SCROLL BEHAVIOR */
+    html { scroll-behavior: smooth; }
+
+    /* CONTENT STYLING */
+    .legal-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: #2c2c2c;
+      margin-top: 3.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+    }
+    
+    .legal-content h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+
+    .legal-content h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2c2c2c;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.85rem;
+    }
+
+    .legal-content p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(44, 44, 44, 0.8);
+      margin-bottom: 1.25rem;
+    }
+
+    .legal-content ul, .legal-content ol {
+      margin-bottom: 1.5rem;
+      padding-left: 0;
+    }
+
+    .legal-content li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: rgba(44, 44, 44, 0.8);
+      line-height: 1.6;
+    }
+
+    .legal-content ul > li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #2c2c2c;
+      font-weight: bold;
+    }
+
+    /* TABLE STYLING */
+    .legal-table-wrapper {
+      overflow-x: auto;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      border: 1px solid rgba(44, 44, 44, 0.1);
+    }
+
+    .legal-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .legal-table th {
+      background: rgba(44, 44, 44, 0.05);
+      text-align: left;
+      padding: 1rem;
+      font-weight: 600;
+      color: #2c2c2c;
+      border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+    }
+
+    .legal-table td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(44, 44, 44, 0.05);
+      color: rgba(44, 44, 44, 0.8);
+    }
+
+    .legal-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* STICKY SIDEBAR */
+    .sticky-nav-link {
+      display: block;
+      padding: 0.5rem 0;
+      color: rgba(44, 44, 44, 0.5);
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      border-left: 2px solid transparent;
+      padding-left: 1rem;
+    }
+    
+    .sticky-nav-link:hover, .sticky-nav-link.active {
+      color: #2c2c2c;
+      border-left-color: #2c2c2c;
+      font-weight: 500;
+    }
+  </style>
+
+  <!-- PAGE WRAPPER -->
+  <section class="bg-[#F3F1EC] min-h-screen pt-32 pb-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- HEADER -->
+      <div class="text-center mb-20 max-w-3xl mx-auto">
+        <p class="font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#2c2c2c]/40 mb-4">Legal Documentation</p>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2c2c2c] mb-6">Privacy Policy</h1>
+        <p class="font-sans text-[#2c2c2c]/60">
+          <span class="font-bold text-[#2c2c2c]">Effective Date:</span> January 1, 2026 &nbsp;|&nbsp; 
+          <span class="font-bold text-[#2c2c2c]">Last Updated:</span> January 1, 2026
+        </p>
+      </div>
+
+      <!-- MAIN LAYOUT: Sidebar + Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- LEFT: Sticky Navigation (Desktop) -->
+        <div class="hidden lg:block lg:col-span-3 sticky top-32">
+          <nav class="space-y-1 max-h-[70vh] overflow-y-auto pr-4 scrollbar-thin">
+            {sections.map((section) => (
+              <a href={`#${section.id}`} class="sticky-nav-link font-sans">
+                {section.title}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <!-- RIGHT: Legal Content -->
+        <div class="lg:col-span-9 legal-content bg-[#e7e5e0] p-8 md:p-12 rounded-xl shadow-sm border border-[#2c2c2c]/5">
+          
+          <div id="commitment">
+            <h2>OUR COMMITMENT TO PRIVACY</h2>
+            <p>At 4RealtyAI, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and protect your personal information when you use our AI consulting services, implementation tools, and website.</p>
+            <p><strong>We are committed to:</strong></p>
+            <ul>
+              <li>Transparency about data collection and use</li>
+              <li>Giving you control over your information</li>
+              <li>Protecting your data with industry-leading security</li>
+              <li>Complying with Canadian privacy laws (PIPEDA)</li>
+              <li>Minimizing data collection to what's necessary</li>
+            </ul>
+            <p><strong>If you have questions or concerns, contact us at:</strong> support@4realtyai.com enter 'Privacy' in the subject line.</p>
+          </div>
+
+          <div id="who-we-are">
+            <h2>1. WHO WE ARE</h2>
+            <p><strong>4RealtyAI</strong> is an AI consulting and implementation company serving real estate agents, mortgage brokers, and brokerages primarily in Toronto and the Greater Toronto Area.</p>
+            <p><strong>Data Controller:</strong> For your account information and our business relationship, we are the data controller.</p>
+            <p><strong>Data Processor:</strong> For your clients' personal information that flows through our AI Tools, we act as a data processor on your behalf.</p>
+          </div>
+
+          <div id="scope">
+            <h2>2. SCOPE OF THIS POLICY</h2>
+            <h3>This Policy Applies To:</h3>
+            <ul>
+              <li><strong>Our Website:</strong> 4realtyai.com and all subdomains</li>
+              <li><strong>Our AI Tools:</strong> ShowSmart™, LeadBoost™, SocialSpark™, AdGenie™, MarketVision™, HomeMatch™, TourCast™, DealCheck™</li>
+              <li><strong>Our Services:</strong> Consulting, implementation, training, and ongoing support</li>
+              <li><strong>Communications:</strong> Emails, calls, chat, and support interactions</li>
+            </ul>
+            <p><strong>Note:</strong> If you are an end user (someone whose agent/broker uses our tools), your personal information is controlled by your agent/broker. Contact them for privacy questions.</p>
+          </div>
+
+          <div id="collection">
+            <h2>3. INFORMATION WE COLLECT</h2>
+            
+            <h3>3.1 Information You Provide Directly</h3>
+            <h4>Account Information</h4>
+            <p>Full name, business name, email, phone, business address, brokerage affiliation, and license numbers.</p>
+            
+            <h4>Business Information</h4>
+            <p>CRM system details, website credentials, social media accounts, brand guidelines, logos, and sample content.</p>
+            
+            <h4>Service Usage Information</h4>
+            <p>AI Tool configurations, automation rules, training data, lead qualification criteria, and team roles.</p>
+
+            <h3>3.2 Information We Collect Automatically</h3>
+            <p>We automatically collect device info (IP address, browser type), usage analytics (features used, click patterns), and cookie data.</p>
+
+            <h3>3.3 Information from Third-Party Integrations</h3>
+            <p>When you connect services like CRMs (Salesforce, HubSpot), Social Media, or Ad Platforms, we receive contact names, lead sources, campaign metrics, and property listings.</p>
+
+            <h3>3.4 Information About Your Clients (End Users)</h3>
+            <p><strong>IMPORTANT:</strong> When your clients interact with our AI Tools, we process their information on your behalf:</p>
+            <ul>
+              <li><strong>Lead Capture:</strong> Name, contact info, property preferences, chat transcripts.</li>
+              <li><strong>Mortgage Data (DealCheck™):</strong> Highly sensitive info including income, employment, assets, credit reports, and identification. See Section 8.6 for special security measures.</li>
+            </ul>
+          </div>
+
+          <div id="usage">
+            <h2>4. HOW WE USE YOUR INFORMATION</h2>
+            <h3>4.1 Provide and Improve Our Services</h3>
+            <p>We use data to manage accounts, process payments, customize AI responses, generate marketing content, qualify leads, and analyze mortgage documents.</p>
+            
+            <h3>4.5 AI Model Training and Improvement</h3>
+            <h4>Aggregate and Anonymized Data</h4>
+            <p>We use anonymized data to train general AI models on real estate patterns, improving content quality and lead qualification accuracy.</p>
+            
+            <h4>Your Specific Data</h4>
+            <p>We train models on YOUR brand voice and rules to optimize performance for YOUR business. <strong>We DO NOT:</strong> Train models on your competitor's style using your data or share your specific configurations.</p>
+          </div>
+
+          <div id="legal-basis">
+            <h2>5. LEGAL BASIS FOR PROCESSING (Canada/PIPEDA)</h2>
+            <p>We process information based on:</p>
+            <ul>
+              <li><strong>Consent:</strong> Express (e.g., account creation) or Implied (e.g., usage data).</li>
+              <li><strong>Contractual Necessity:</strong> To fulfill our Service Agreement.</li>
+              <li><strong>Legal Obligations:</strong> Tax reporting and fraud prevention.</li>
+              <li><strong>Legitimate Interests:</strong> Improving services and security.</li>
+            </ul>
+          </div>
+
+          <div id="ai-usage">
+            <h2>6. AI AND MACHINE LEARNING DATA USAGE</h2>
+            <h3>6.1 How Our AI Tools Learn</h3>
+            <p><strong>General AI Models:</strong> Trained on publicly available data and anonymized, aggregated patterns across 20+ clients.</p>
+            <p><strong>Your Custom AI:</strong> Trained on your brand voice and rules. Used ONLY for your account.</p>
+
+            <h3>6.3 DealCheck™ Mortgage Document AI</h3>
+            <p><strong>STRICT POLICY:</strong> Mortgage documents are NEVER used for AI training. They are analyzed in real-time only, stored in your account, and auto-deleted after 90 days.</p>
+
+            <h3>6.5 Your Control Over AI Data Usage</h3>
+            <p>You can opt out of custom model training, request deletion of training data, and export data used for training by emailing support@4realtyai.com.</p>
+          </div>
+
+          <div id="sharing">
+            <h2>7. INFORMATION SHARING AND DISCLOSURE</h2>
+            <h3>7.1 We DO NOT Sell Your Personal Information</h3>
+            <p>We have never sold personal information and never will.</p>
+
+            <h3>7.2 Service Providers</h3>
+            <p>We share data with providers for infrastructure (AWS, Supabase), payments (Stripe), AI (Anthropic, OpenAI), and communication (SendGrid, Twilio). All providers sign Data Processing Agreements.</p>
+          </div>
+
+          <div id="security">
+            <h2>8. DATA SECURITY</h2>
+            <p>We implement TLS 1.3 encryption in transit, AES-256 at rest, MFA, and role-based access control.</p>
+            
+            <h3>8.6 DealCheck™ Mortgage Document Security</h3>
+            <p>Enhanced security for financial data includes:</p>
+            <ul>
+              <li>End-to-end encryption with separate keys per customer.</li>
+              <li>Zero-knowledge architecture (we cannot view documents).</li>
+              <li>Automatic secure deletion after 90 days.</li>
+              <li>Data stored exclusively in Canadian data centers.</li>
+            </ul>
+          </div>
+
+          <div id="retention">
+            <h2>9. DATA RETENTION</h2>
+            <p>We retain information only as long as necessary.</p>
+            
+            <div class="legal-table-wrapper">
+              <table class="legal-table">
+                <thead>
+                  <tr>
+                    <th>Data Type</th>
+                    <th>Retention Period</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Account Information</td>
+                    <td>Duration of service + 7 years</td>
+                  </tr>
+                  <tr>
+                    <td>ShowSmart™ Logs</td>
+                    <td>13 months</td>
+                  </tr>
+                  <tr>
+                    <td>DealCheck™ Documents</td>
+                    <td>90 days (Configurable)</td>
+                  </tr>
+                  <tr>
+                    <td>Marketing Data</td>
+                    <td>Until unsubscribe + 30 days</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="rights">
+            <h2>10. YOUR PRIVACY RIGHTS</h2>
+            <p>Under PIPEDA, you have the right to:</p>
+            <ul>
+              <li><strong>Access:</strong> Request a copy of your personal information.</li>
+              <li><strong>Correction:</strong> Fix inaccurate information.</li>
+              <li><strong>Deletion:</strong> Request removal of your data ("Right to be Forgotten").</li>
+              <li><strong>Portability:</strong> Export data in CSV/JSON format.</li>
+              <li><strong>Withdraw Consent:</strong> Stop future processing based on consent.</li>
+            </ul>
+            <p>To exercise these rights, email privacy@4realtyai.com.</p>
+          </div>
+
+          <div id="cookies">
+            <h2>11. COOKIES AND TRACKING TECHNOLOGIES</h2>
+            <p>We use cookies for authentication, preferences, analytics (Google Analytics), and marketing (Facebook Pixel). You can manage preferences via your browser or our Cookie Preference Center.</p>
+            
+            <div class="legal-table-wrapper">
+              <table class="legal-table">
+                <thead>
+                  <tr>
+                    <th>Cookie Name</th>
+                    <th>Purpose</th>
+                    <th>Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>_session</td>
+                    <td>Authentication</td>
+                    <td>Session</td>
+                  </tr>
+                  <tr>
+                    <td>_ga</td>
+                    <td>Google Analytics</td>
+                    <td>2 years</td>
+                  </tr>
+                  <tr>
+                    <td>_fbp</td>
+                    <td>Facebook Pixel</td>
+                    <td>90 days</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div id="integrations">
+            <h2>12. THIRD-PARTY SERVICES AND INTEGRATIONS</h2>
+            <p>When you connect CRMs (Salesforce, HubSpot), Social Media, or Ad Platforms, we access only data necessary for functionality. You control these integrations and can disconnect them at any time.</p>
+            <p><strong>Real Estate Data:</strong> We access MLS feeds where authorized to display listings and generate market insights. You must ensure you have proper MLS authorization.</p>
+          </div>
+
+          <div id="international">
+            <h2>13. INTERNATIONAL DATA TRANSFERS</h2>
+            <p><strong>Primary Storage:</strong> Canada (Supabase/AWS Canada regions).<br>
+            <strong>Cross-Border:</strong> Some processors (Stripe, OpenAI) are US-based. We use Data Processing Agreements to ensure protection.</p>
+          </div>
+
+          <div id="children">
+            <h2>14. CHILDREN'S PRIVACY</h2>
+            <p>Our services are not intended for children under 18. We do not knowingly collect their data. If we learn of such collection, we will delete it immediately.</p>
+          </div>
+
+          <div id="changes">
+            <h2>15. CHANGES TO THIS POLICY</h2>
+            <p>We may update this policy periodically. Material changes will be notified via email or dashboard notification 30 days in advance. Continued use constitutes acceptance.</p>
+          </div>
+
+          <div id="contact">
+            <h2>16. CONTACT US</h2>
+            <p><strong>Privacy Questions:</strong> support@4realtyai.com enter 'Privacy' in the subject line<br>
+            <strong>Security Concerns:</strong> security@4realtyai.com<br>
+            
+            <p><strong>Regulatory Authority:</strong><br>
+            Office of the Privacy Commissioner of Canada<br>
+            www.priv.gc.ca | 1-800-282-1376</p>
+          </div>
+
+          <div id="appendix">
+            <h2>APPENDIX A: DEFINITIONS</h2>
+            <ul>
+              <li><strong>Personal Information:</strong> Info about an identifiable individual.</li>
+              <li><strong>Data Controller:</strong> Entity determining purposes of processing (Us for account data, You for client data).</li>
+              <li><strong>PIPEDA:</strong> Personal Information Protection and Electronic Documents Act (Canada).</li>
+            </ul>
+
+            <h2>APPENDIX B: DATA PROCESSING SUMMARY</h2>
+            <div class="legal-table-wrapper">
+              <table class="legal-table">
+                <thead>
+                  <tr>
+                    <th>Activity</th>
+                    <th>Legal Basis</th>
+                    <th>Retention</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Account Creation</td>
+                    <td>Contract</td>
+                    <td>Duration + 7 years</td>
+                  </tr>
+                  <tr>
+                    <td>CRM Integration</td>
+                    <td>Contract</td>
+                    <td>Duration + 90 days</td>
+                  </tr>
+                  <tr>
+                    <td>Custom AI Training</td>
+                    <td>Consent</td>
+                    <td>Until withdrawal</td>
+                  </tr>
+                  <tr>
+                    <td>Mortgage Docs</td>
+                    <td>Contract</td>
+                    <td>90 days</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPT: Scroll Spy for Sidebar -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.sticky-nav-link');
+      const sections = document.querySelectorAll('.legal-content > div');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Remove active class from all
+            links.forEach(link => link.classList.remove('active', 'text-[#2c2c2c]', 'font-medium'));
+            
+            // Add active class to corresponding link
+            const activeLink = document.querySelector(`.sticky-nav-link[href="#${entry.target.id}"]`);
+            if (activeLink) {
+              activeLink.classList.add('active', 'text-[#2c2c2c]', 'font-medium');
+            }
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
+
+</Layout>

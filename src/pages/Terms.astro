@@ -1,0 +1,428 @@
+---
+// src/pages/terms.astro
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  { id: "agreement", title: "1. Agreement to Terms" },
+  { id: "definitions", title: "2. Definitions" },
+  { id: "services", title: "3. Services Provided" },
+  { id: "fees", title: "4. Fees and Payment" },
+  { id: "responsibilities", title: "5. Client Responsibilities" },
+  { id: "privacy", title: "6. Data Privacy & Security" },
+  { id: "ip", title: "7. Intellectual Property" },
+  { id: "performance", title: "8. Service Level & Performance" },
+  { id: "termination", title: "9. Term & Termination" },
+  { id: "warranties", title: "10. Warranties & Disclaimers" },
+  { id: "liability", title: "11. Limitation of Liability" },
+  { id: "confidentiality", title: "12. Confidentiality" },
+  { id: "acceptable-use", title: "13. Acceptable Use" },
+  { id: "third-party", title: "14. Third-Party Services" },
+  { id: "modifications", title: "15. Modifications" },
+  { id: "disputes", title: "16. Dispute Resolution" },
+  { id: "general", title: "17. General Provisions" },
+  { id: "specifics", title: "18. Specific Service Provisions" },
+  { id: "compliance", title: "19. Regulatory Compliance" },
+  { id: "contact", title: "20. Contact Information" },
+  { id: "acknowledgment", title: "21. Acknowledgment" },
+];
+---
+
+<Layout title="Terms of Service | 4RealtyAI">
+  
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* TYPOGRAPHY */
+    .font-serif { font-family: 'Playfair Display', serif; }
+    .font-sans { font-family: 'Inter', sans-serif; }
+
+    /* SCROLL BEHAVIOR */
+    html { scroll-behavior: smooth; }
+
+    /* CONTENT STYLING */
+    .legal-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: #2c2c2c;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+    }
+    
+    .legal-content h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #2c2c2c;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .legal-content p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: rgba(44, 44, 44, 0.8);
+      margin-bottom: 1.25rem;
+    }
+
+    .legal-content ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .legal-content li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: rgba(44, 44, 44, 0.8);
+      line-height: 1.6;
+    }
+
+    .legal-content li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #2c2c2c;
+      font-weight: bold;
+    }
+
+    .legal-content strong {
+      color: #2c2c2c;
+      font-weight: 600;
+    }
+
+    /* STICKY SIDEBAR */
+    .sticky-nav-link {
+      display: block;
+      padding: 0.5rem 0;
+      color: rgba(44, 44, 44, 0.5);
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+      border-left: 2px solid transparent;
+      padding-left: 1rem;
+    }
+    
+    .sticky-nav-link:hover, .sticky-nav-link.active {
+      color: #2c2c2c;
+      border-left-color: #2c2c2c;
+    }
+  </style>
+
+  <!-- PAGE WRAPPER -->
+  <section class="bg-[#F3F1EC] min-h-screen pt-32 pb-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- HEADER -->
+      <div class="text-center mb-20 max-w-3xl mx-auto">
+        <p class="font-sans text-xs font-bold uppercase tracking-[0.2em] text-[#2c2c2c]/40 mb-4">Legal Documentation</p>
+        <h1 class="font-serif text-4xl md:text-5xl lg:text-6xl text-[#2c2c2c] mb-6">Terms of Service</h1>
+        <p class="font-sans text-[#2c2c2c]/60">
+          <span class="font-bold text-[#2c2c2c]">Effective Date:</span> January 1, 2026 &nbsp;|&nbsp; 
+          <span class="font-bold text-[#2c2c2c]">Last Updated:</span> January 1, 2026
+        </p>
+      </div>
+
+      <!-- MAIN LAYOUT: Sidebar + Content -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- LEFT: Sticky Navigation (Desktop) -->
+        <div class="hidden lg:block lg:col-span-3 sticky top-32">
+          <nav class="space-y-1 max-h-[70vh] overflow-y-auto pr-4 scrollbar-thin">
+            {sections.map((section) => (
+              <a href={`#${section.id}`} class="sticky-nav-link font-sans">
+                {section.title}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <!-- RIGHT: Legal Content -->
+        <div class="lg:col-span-9 legal-content bg-[#e7e5e0] p-8 md:p-12 rounded-xl shadow-sm border border-[#2c2c2c]/5">
+          
+          <div id="agreement">
+            <h2>1. AGREEMENT TO TERMS</h2>
+            <p>These Terms of Service ("Terms") constitute a legally binding agreement between you ("Client," "you," or "your") and 4RealtyAI ("Company," "we," "us," or "our") governing your access to and use of our AI consulting, implementation services, and proprietary tools.</p>
+            <p>By signing a Service Agreement, accessing our services, or using our AI tools, you acknowledge that you have read, understood, and agree to be bound by these Terms.</p>
+            <p><strong>If you do not agree to these Terms, you may not access or use our services.</strong></p>
+          </div>
+
+          <div id="definitions">
+            <h2>2. DEFINITIONS</h2>
+            <p><strong>"AI Tools"</strong> means our proprietary software suite including ShowSmart™, LeadBoost™, SocialSpark™, AdGenie™, MarketVision™, HomeMatch™, TourCast™, DealCheck™, and any future tools developed by 4RealtyAI.</p>
+            <p><strong>"Implementation Services"</strong> means the one-time setup, configuration, integration, training, and deployment services we provide to launch your AI system.</p>
+            <p><strong>"Partnership Services"</strong> means ongoing optimization, monitoring, support, and performance enhancement services provided after implementation.</p>
+            <p><strong>"Service Agreement"</strong> means the signed agreement specifying your selected tier, implementation fee, revenue share percentage, and scope of services.</p>
+            <p><strong>"Client Data"</strong> means all data, content, and information you provide to us, including but not limited to CRM data, listing information, client contacts, marketing materials, and business records.</p>
+            <p><strong>"Generated Revenue"</strong> means revenue directly attributable to leads, opportunities, or transactions facilitated by our AI Tools as determined by our attribution methodology.</p>
+            <p><strong>"Service Tier"</strong> means your selected package: Solo Agent, Power Team, or Brokerage.</p>
+          </div>
+
+          <div id="services">
+            <h2>3. SERVICES PROVIDED</h2>
+            <h3>3.1 Implementation Services</h3>
+            <p>We will provide the following one-time services as outlined in your Service Agreement:</p>
+            <ul>
+              <li>Workflow analysis and opportunity assessment</li>
+              <li>AI Tool selection and customization</li>
+              <li>Brand voice and messaging configuration</li>
+              <li>CRM integration and data synchronization</li>
+              <li>System configuration and automation setup</li>
+              <li>Team training and documentation</li>
+              <li>Go-live deployment and testing</li>
+              <li>Initial performance monitoring (first 30 days)</li>
+            </ul>
+
+            <h3>3.2 Partnership Services</h3>
+            <p>Following successful implementation, we provide ongoing services including:</p>
+            <ul>
+              <li>Performance monitoring and analytics</li>
+              <li>System optimization and rule adjustments</li>
+              <li>Attribution tracking and reporting</li>
+              <li>Software updates and feature enhancements</li>
+              <li>Technical support and troubleshooting</li>
+              <li>Monthly performance reviews</li>
+              <li>Strategic consultation</li>
+            </ul>
+
+            <h3>3.3 Service Tiers</h3>
+            <p>Services are delivered according to your selected tier as defined in your Service Agreement. Each tier includes specific AI Tools, features, and support levels.</p>
+          </div>
+
+          <div id="fees">
+            <h2>4. FEES AND PAYMENT</h2>
+            <h3>4.1 Implementation Fee</h3>
+            <p>You agree to pay a one-time implementation fee as specified in your Service Agreement. This fee is:</p>
+            <ul>
+              <li>Due upon execution of the Service Agreement</li>
+              <li>Non-refundable after 30 days from payment date (subject to Section 4.6)</li>
+              <li>Payable by credit card, wire transfer, or certified check</li>
+              <li>Exclusive of applicable taxes</li>
+            </ul>
+
+            <h3>4.2 Monthly Revenue Share</h3>
+            <p>You agree to pay a monthly revenue share calculated as a percentage of Generated Revenue as specified in your Service Agreement:</p>
+            <ul>
+              <li>Solo Agent Tier: 2.5% of Generated Revenue</li>
+              <li>Power Team Tier: 2.0% of Generated Revenue</li>
+              <li>Brokerage Tier: 1.5% of Generated Revenue (or as negotiated)</li>
+            </ul>
+
+            <h3>4.3 Minimum Monthly Fee</h3>
+            <p>Your Service Agreement may include a minimum monthly fee. If your revenue share calculation is below this minimum, you will be charged the minimum amount.</p>
+
+            <h3>4.4 Attribution Methodology</h3>
+            <p>Generated Revenue is determined using the following attribution model:</p>
+            <p><strong>Primary Attribution (100% counted):</strong></p>
+            <ul>
+              <li>Leads captured directly by AI Tools (ShowSmart™, HomeMatch™, etc.)</li>
+              <li>Transactions where AI-generated content was the first touchpoint</li>
+              <li>Appointments booked through AI automation</li>
+              <li>Clients referred through AI-powered campaigns</li>
+            </ul>
+            <p><strong>Partial Attribution (50% counted):</strong></p>
+            <ul>
+              <li>Transactions where AI Tools contributed to nurturing or conversion</li>
+              <li>Leads engaged with AI-generated content during sales cycle</li>
+              <li>Clients influenced by AI marketing but closed through other channels</li>
+            </ul>
+            <p><strong>No Attribution:</strong></p>
+            <ul>
+              <li>Pre-existing clients from before implementation</li>
+              <li>Referrals from personal relationships unrelated to AI activities</li>
+              <li>Transactions with no documented AI interaction</li>
+            </ul>
+
+            <h3>4.5 Invoicing and Payment Terms</h3>
+            <ul>
+              <li>Revenue share invoices are issued monthly in arrears</li>
+              <li>Payment is due within 15 days of invoice date</li>
+              <li>Late payments incur 1.5% monthly interest (18% annually)</li>
+              <li>Access to AI Tools may be suspended for payments 30+ days overdue</li>
+            </ul>
+
+            <h3>4.6 Refund Policy - Implementation Fee</h3>
+            <p>You may request a full refund of the implementation fee if:</p>
+            <ul>
+              <li>We fail to complete implementation within 60 days (excluding delays caused by you)</li>
+              <li>Our AI Tools fail to capture any qualified leads within the first 90 days after go-live</li>
+              <li>We breach these Terms in a material way</li>
+            </ul>
+
+            <h3>4.7 Taxes</h3>
+            <p>All fees are exclusive of applicable federal, provincial, and local taxes (including GST/HST). You are responsible for all taxes except those based on our net income.</p>
+          </div>
+
+          <div id="responsibilities">
+            <h2>5. CLIENT RESPONSIBILITIES</h2>
+            <h3>5.1 Accurate Information</h3>
+            <p>You agree to provide accurate and complete information during onboarding, access to necessary systems, and honest reporting of deal closures and revenue.</p>
+            <h3>5.2 System Access</h3>
+            <p>You will grant us access to integrate with your CRM and marketing platforms and maintain active subscriptions to required third-party services.</p>
+            <h3>5.3 Content and Brand Materials</h3>
+            <p>You will provide brand guidelines, logos, and approve all AI-generated content during setup.</p>
+            <h3>5.4 Compliance with Laws</h3>
+            <p>You agree to comply with all applicable real estate, privacy, and advertising laws and ensure AI-generated content meets regulatory requirements.</p>
+          </div>
+
+          <div id="privacy">
+            <h2>6. DATA PRIVACY AND SECURITY</h2>
+            <h3>6.1 Data Collection and Use</h3>
+            <p>We collect and process Client Data to provide and improve our services, customize AI Tools, and generate analytics.</p>
+            <h3>6.2 Data Ownership</h3>
+            <p><strong>You retain ownership</strong> of all Client Data. We claim no ownership rights to your client contacts, listing data, or business records.</p>
+            <h3>6.3 Data Security</h3>
+            <p>We implement industry-standard security measures including encryption in transit (TLS 1.3) and at rest (AES-256).</p>
+            <h3>6.5 Mortgage Document Security</h3>
+            <p>For clients using DealCheck™, documents are encrypted, stored in Canadian data centers, and automatically purged after 90 days.</p>
+          </div>
+
+          <div id="ip">
+            <h2>7. INTELLECTUAL PROPERTY</h2>
+            <p>We retain all rights to our AI Tools, algorithms, and trademarks. You retain all rights to your brand name, content, and data. Content generated by our AI Tools using your brand voice is licensed to you for unlimited commercial use.</p>
+          </div>
+
+          <div id="performance">
+            <h2>8. SERVICE LEVEL AND PERFORMANCE</h2>
+            <p>We target 99% uptime for our AI Tools. Support response times vary by priority, ranging from 4 hours for critical issues to 5 business days for low priority requests.</p>
+            <p><strong>Performance Expectations:</strong> While we strive for optimal results, we do not guarantee specific numbers of leads, conversions, or revenue amounts. AI performance depends on market conditions and factors outside our control.</p>
+          </div>
+
+          <div id="termination">
+            <h2>9. TERM AND TERMINATION</h2>
+            <p>This agreement begins upon execution of your Service Agreement. You may terminate Partnership Services with 30 days written notice. Implementation fees are non-refundable unless specified otherwise.</p>
+          </div>
+
+          <div id="warranties">
+            <h2>10. WARRANTIES AND DISCLAIMERS</h2>
+            <p><strong>DISCLAIMER:</strong> EXCEPT AS EXPRESSLY STATED, OUR SERVICES AND AI TOOLS ARE PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND. WE DISCLAIM ALL IMPLIED WARRANTIES INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+          </div>
+
+          <div id="liability">
+            <h2>11. LIMITATION OF LIABILITY</h2>
+            <p><strong>OUR TOTAL LIABILITY ARISING FROM OR RELATED TO THESE TERMS SHALL NOT EXCEED THE TOTAL FEES YOU PAID TO US IN THE 12 MONTHS PRECEDING THE CLAIM.</strong></p>
+            <p>WE SHALL NOT BE LIABLE FOR LOST PROFITS, REVENUE, OR BUSINESS OPPORTUNITIES.</p>
+          </div>
+
+          <div id="confidentiality">
+            <h2>12. CONFIDENTIALITY</h2>
+            <p>Each party agrees to maintain the confidentiality of the other's proprietary information and use it only for the purposes of this agreement. Obligations survive for 3 years after termination.</p>
+          </div>
+
+          <div id="acceptable-use">
+            <h2>13. ACCEPTABLE USE</h2>
+            <p>You may not use our services to violate laws, distribute spam, or infringe on third-party rights. AI-generated content must not make false claims or violate real estate advertising regulations.</p>
+          </div>
+
+          <div id="third-party">
+            <h2>14. THIRD-PARTY SERVICES</h2>
+            <p>Our services may integrate with third-party platforms. You are responsible for maintaining accounts and complying with their terms. We are not liable for third-party service outages.</p>
+          </div>
+
+          <div id="modifications">
+            <h2>15. MODIFICATIONS TO TERMS</h2>
+            <p>We reserve the right to modify these Terms. Changes become effective 30 days after notice for existing clients.</p>
+          </div>
+
+          <div id="disputes">
+            <h2>16. DISPUTE RESOLUTION</h2>
+            <p>Disputes will be resolved through good-faith negotiation, followed by mediation, and finally binding arbitration in Toronto, Ontario. <strong>YOU AGREE TO WAIVE THE RIGHT TO PARTICIPATE IN CLASS ACTIONS.</strong></p>
+          </div>
+
+          <div id="general">
+            <h2>17. GENERAL PROVISIONS</h2>
+            <p>These Terms are governed by the laws of Ontario, Canada. This constitutes the entire agreement between parties.</p>
+          </div>
+
+          <div id="specifics">
+            <h2>18. SPECIFIC SERVICE PROVISIONS</h2>
+            <h3>18.1 ShowSmart™ (AI Chat Assistant)</h3>
+            <p>Operates 24/7. You are responsible for reviewing automated responses. Lead capture requires CRM integration.</p>
+            <h3>18.2 LeadBoost™ (Content Generation)</h3>
+            <p>Generated content requires your review. You are responsible for factual accuracy and compliance.</p>
+            <h3>18.8 DealCheck™ (Mortgage Analysis)</h3>
+            <p><strong>IMPORTANT:</strong> Analysis is for informational purposes ONLY. It is NOT a substitute for professional underwriting, legal advice, or a guarantee of loan approval. You remain responsible for verifying borrower information.</p>
+          </div>
+
+          <div id="compliance">
+            <h2>19. REGULATORY COMPLIANCE</h2>
+            <p>You are responsible for compliance with RECO regulations, privacy laws (PIPEDA), anti-spam laws (CASL), and accessibility standards.</p>
+          </div>
+
+          <div id="contact">
+            <h2>20. CONTACT INFORMATION</h2>
+            <p>For questions about these Terms:</p>
+            <p>
+              <strong>4RealtyAI</strong><br/>
+              Email: hello@4realtyai.com<br/>
+              Toronto, Ontario, Canada
+            </p>
+            <p>
+            For service issues: support@4realtyai.com<br/>
+            For billing questions: support@4realtyai.com enter 'Billing' in the subject line
+            </p>
+          </div>
+
+          <div id="acknowledgment">
+            <h2>21. ACKNOWLEDGMENT</h2>
+            <p>BY SIGNING A SERVICE AGREEMENT, CLICKING "I ACCEPT," OR USING OUR SERVICES, YOU ACKNOWLEDGE THAT:</p>
+            <ol class="list-decimal pl-6 space-y-2 font-sans text-sm text-[#2c2c2c]/80">
+              <li>You have read and understood these Terms</li>
+              <li>You agree to be bound by these Terms</li>
+              <li>You have authority to enter this agreement</li>
+              <li>You understand the revenue share attribution methodology</li>
+              <li>You accept the limitations of liability</li>
+              <li>You agree to arbitration and class action waiver</li>
+              <li>You understand AI outputs require your review and approval</li>
+              <li>You are responsible for regulatory compliance</li>
+              <li>Implementation fees are non-refundable (except as specified)</li>
+              <li>You will provide accurate information and honest reporting</li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCRIPT: Scroll Spy for Sidebar -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.sticky-nav-link');
+      const sections = document.querySelectorAll('.legal-content > div');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -70% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Remove active class from all
+            links.forEach(link => link.classList.remove('active', 'text-[#2c2c2c]', 'font-medium'));
+            
+            // Add active class to corresponding link
+            const activeLink = document.querySelector(`.sticky-nav-link[href="#${entry.target.id}"]`);
+            if (activeLink) {
+              activeLink.classList.add('active', 'text-[#2c2c2c]', 'font-medium');
+            }
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
+
+</Layout>
