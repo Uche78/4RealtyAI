@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- 
+    4RealtyAI Sitemap
+    Last Updated: 2026-01-05
+    
+    Priority Scale:
+    1.0 = Homepage only
+    0.9 = Critical conversion pages
+    0.3 = Legal/utility pages
+  -->
+
+  <!-- ==================== CORE PAGES ==================== -->
+
+  <!-- Homepage - Highest Priority -->
+  <url>
+    <loc>https://4realtyai.com/</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://4realtyai.com/about</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ==================== CONVERSION PAGES ==================== -->
+
+  <!-- Assessment Form - Critical Conversion Point -->
+  <url>
+    <loc>https://assessment.4realtyai.com/assessment</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+
+  <!-- ==================== AI TOOLS (Individual Pages) ==================== -->
+
+  <!-- ShowSmart™ - AI Chat Assistant 
+  <url>
+    <loc>https://4realtyai.com/tools/showsmart</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- LeadBoost™ - Content Generation 
+  <url>
+    <loc>https://4realtyai.com/tools/leadboost</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- SocialSpark™ - Social Media Automation 
+  <url>
+    <loc>https://4realtyai.com/tools/socialspark</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- AdGenie™ - Ad Campaign Builder 
+  <url>
+    <loc>https://4realtyai.com/tools/adgenie</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- MarketVision™ - Market Analytics 
+  <url>
+    <loc>https://4realtyai.com/tools/marketvision</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- HomeMatch™ - Property Matching 
+  <url>
+    <loc>https://4realtyai.com/tools/homematch</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- TourCast™ - Video Tours 
+  <url>
+    <loc>https://4realtyai.com/tools/tourcast</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- DealCheck™ - Mortgage Analysis (for Brokers) 
+  <url>
+    <loc>https://4realtyai.com/tools/dealcheck</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+
+  <!-- ==================== LEGAL PAGES ==================== -->
+
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://4realtyai.com/Terms</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://4realtyai.com/Privacy</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+
+</urlset>
